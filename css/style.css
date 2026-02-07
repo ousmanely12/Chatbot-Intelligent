@@ -67,6 +67,9 @@ body {
     padding: var(--spacing-md);
     box-shadow: var(--shadow-md);
     border-bottom: 2px solid var(--primary-color);
+    position: fixed;
+    width: 100%;
+    z-index: 1;
 }
 
 .header-content {
