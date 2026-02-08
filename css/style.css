@@ -348,3 +348,202 @@ body {
         display: none;
     }
 }
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    border: 2px solid var(--primary-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+    z-index: 1000;
+   }
+   .theme-toggle:hover {
+    transform: rotate(180deg) scale(1.1);
+    box-shadow: var(--shadow-lg);
+   }
+   .theme-toggle:active {
+    transform: rotate(180deg) scale(0.95);
+   }
+   .theme-icon {
+    position: absolute;
+    transition: all 0.3s ease;
+   }
+   /* Par défaut (thème sombre) : montrer la lune */
+   .theme-icon.sun {
+    opacity: 0;
+    transform: rotate(180deg) scale(0);
+   }
+   .theme-icon.moon {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+   }
+   /* Thème clair : montrer le soleil */
+   body.light-theme .theme-icon.sun {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+   }
+   body.light-theme .theme-icon.moon {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0);
+   }
+   /* --- ANIMATIONS D'ENTRÉE DES MESSAGES --- */
+/* Animation pour les messages du bot (venant de la gauche) */
+.bot-message {
+    animation: slideInLeft 0.4s ease;
+   }
+   @keyframes slideInLeft {
+    from {
+    opacity: 0;
+    transform: translateX(-50px);
+    }
+    to {
+    opacity: 1;
+    transform: translateX(0);
+    }
+   }
+   /* Animation pour les messages utilisateur (venant de la droite) */
+   .user-message {
+    animation: slideInRight 0.4s ease;
+   }
+   @keyframes slideInRight {
+    from {
+    opacity: 0;
+    transform: translateX(50px);
+    }
+    to {
+    opacity: 1;
+    transform: translateX(0);
+    }
+   }
+   .message-avatar {
+    animation: bounceIn 0.5s ease;
+   }
+   @keyframes bounceIn {
+    0% {
+    transform: scale(0);
+    opacity: 0;
+    }
+    50% {
+    transform: scale(1.2);
+    }
+    100% {
+    transform: scale(1);
+    opacity: 1;
+    }
+   }
+   .message-content {
+    animation: fadeInScale 0.3s ease;
+   }
+   @keyframes fadeInScale {
+    from {
+    opacity: 0;
+    transform: scale(0.9);
+    }
+    to {
+    opacity: 1;
+    transform: scale(1);
+    }
+   }
+   .message {
+    position: relative;
+    transition: transform 0.3s ease;
+   }
+   .message::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    border-radius: var(--radius-md);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+   }
+   .message:hover::before {
+    opacity: 0.1;
+   }
+   .message:hover {
+    transform: translateY(-2px);
+   }
+   .send-btn {
+    /* ... styles existants ... */
+    position: relative;
+    overflow: hidden;
+   }
+   /* Effet de brillance au survol */
+   .send-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+   }
+   .send-btn:hover::before {
+    left: 100%;
+   }
+   /* Animation lors de l'envoi */
+   .send-btn.sending .btn-icon {
+    animation: spin 0.5s ease;
+   }
+   @keyframes spin {
+    to { transform: rotate(360deg); }
+   }
+   .user-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow:
+    0 0 0 3px rgba(99, 102, 241, 0.2),
+    0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+   }
+   .user-input::placeholder {
+    transition: all 0.3s ease;
+   }
+   .user-input:focus::placeholder {
+    opacity: 0.5;
+    transform: translateX(10px);
+   }
+   .mode-btn {
+    /* ... styles existants ... */
+    position: relative;
+    overflow: hidden;
+   }
+   .mode-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+   }
+   .mode-btn:hover::before {
+    width: 300px;
+    height: 300px;
+   }
+   .mode-btn.active {
+    animation: pulse 2s ease infinite;
+   }
+   @keyframes pulse {
+    0%, 100% {
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);
+    }
+    50% {
+    box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+    }
+   }      
+   
