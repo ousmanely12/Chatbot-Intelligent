@@ -122,6 +122,26 @@ body {
     box-shadow: var(--shadow-md);
 }
 
+body.light-theme {
+    --bg-main: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-light: #e2e8f0;
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
+    --bot-message-bg: #3b82f6;
+    --user-message-bg: #8b5cf6;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+   }
+   body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+   }
+   * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+   }
+
 /* --- ZONE PRINCIPALE DU CHAT --- */
 .chat-main {
     flex: 1;
