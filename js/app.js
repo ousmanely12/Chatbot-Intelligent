@@ -75,11 +75,13 @@ function initializeApp() {
     });
   });
 
+
   // ============================================
   // 4. ENVOI DE MESSAGES
   // ============================================
-
   // Événement au clic sur le bouton
+  
+
   sendBtn.addEventListener("click", function () {
     sendMessage();
   });
