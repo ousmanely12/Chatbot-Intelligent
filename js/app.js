@@ -21,6 +21,16 @@ document.addEventListener("DOMContentLoaded", function () {
 // ============================================
 function initializeApp() {
   console.log("🚀 Initialisation du chatbot...");
+  // ============================================
+    // CHARGEMENT DES DONNÉES
+    // ============================================
+    chargerDonneesEtudiants().then(data => {
+      if (data) {
+          addBotMessage(`Données chargées ! Je connais ${data.etudiants.length} étudiants de ${data.etablissement} ! 🎓`);
+      } else {
+          addBotMessage("⚠️ Impossible de charger les données. Certaines fonctionnalités seront limitées.");
+      }
+  });
 
   // Sélection des éléments du DOM
   const userInput = document.getElementById("user-input");
@@ -205,59 +215,73 @@ function initializeApp() {
   // (Sera remplacée par l'IA au Module 4)
   // ============================================
   function generateTemporaryResponse(userMessage, mode) {
-    // Convertir en minuscules pour faciliter la détection
-    const msg = userMessage.toLowerCase();
-
-    // Réponses selon le mode
-    const responses = {
-      naturel: [
-        "Hmm, intéressante question ! Pour l'instant je suis en mode apprentissage. 😊",
-        "Je note ça ! Bientôt je pourrai te répondre avec l'IA. 🤖",
-        "Super question ! J'apprends encore comment y répondre. 📚",
-      ],
-      roast: [
-        "Oh là là, cette question... 🔥 Donne-moi le temps de préparer une réponse qui arrache !",
-        "Tu veux vraiment que je roast avec ça ? Attends le Module 4, ça va chauffer ! 😈",
-        "Pas mal comme question, mais j'ai besoin de mon cerveau IA d'abord ! 💀",
-      ],
-      sympathique: [
-        "Quelle belle question ! 💖 Je suis impatient d'y répondre quand j'aurai mon IA !",
-        "Tu es trop gentil(le) de me poser cette question ! 🥰 Bientôt je pourrai t'aider !",
-        "Aww, j'aimerais tellement pouvoir répondre ! 💕 Patience, ça arrive !",
-      ],
-    };
-
-    // Détection de mots-clés
-    if (
-      msg.includes("salut") ||
-      msg.includes("bonjour") ||
-      msg.includes("hello")
-    ) {
-      return mode === "roast"
-        ? "Salut toi ! Prêt(e) à te faire roast ? 🔥"
-        : mode === "sympathique"
-        ? "Coucou ! 💖 Quel plaisir de te parler !"
-        : "Salut ! Comment puis-je t'aider ? 😊";
+    // Vérifier si les données sont chargées
+    if (!donneesChargees()) {
+        return "Les données ne sont pas encore chargées. Patiente un instant... 🔄";
     }
-
-    if (msg.includes("merci") || msg.includes("thanks")) {
-      return mode === "roast"
-        ? "Ouais ouais, de rien... 😏"
-        : mode === "sympathique"
-        ? "Avec grand plaisir ! Tu es adorable ! 🥰"
-        : "De rien, ravi d'aider ! 😊";
+    
+    // Interpréter la question
+    const intent = interpreterQuestion(userMessage);
+    
+    switch(intent.type) {
+        case 'presentation':
+            const etudiants = rechercherEtudiant(intent.nom);
+            if (etudiants.length > 0) {
+                return presenterEtudiant(etudiants[0], mode);
+            }
+            return `Désolé, je ne connais pas "${intent.nom}" 🤔. Essaie un autre nom !`;
+            
+        case 'funfact':
+            const etudiant = rechercherEtudiant(intent.nom)[0];
+            if (etudiant) {
+                const fact = funFactAleatoire(etudiant);
+                return `🎉 Fun fact sur ${etudiant.prenom} : ${fact}`;
+            }
+            return `Je ne connais pas cette personne 🤷`;
+            
+        case 'statistiques':
+            const stats = studentsData.stats;
+            return `📊 Statistiques :\n\n` +
+                   `👥 Total : ${stats.totalEtudiants} étudiants\n` +
+                   `🎓 Filières : ${stats.filieres.join(', ')}\n` +
+                   `📦 Total projets : ${stats.totalProjets}\n` +
+                   `☕ Total cafés/jour : ${stats.totalCafes}`;
+            
+        case 'liste':
+            const liste = studentsData.etudiants
+                .map(e => `• ${e.prenom} ${e.nom} (${e.filiere})`)
+                .join('\n');
+            return `📋 Liste des étudiants :\n\n${liste}`;
+            
+        case 'recherche-interet':
+            const interesses = filtrerParInteret(intent.interet);
+            if (interesses.length > 0) {
+                const noms = interesses.map(e => `• ${e.prenom} ${e.nom}`).join('\n');
+                return `${interesses.length} personne(s) intéressée(s) par "${intent.interet}" :\n\n${noms}`;
+            }
+            return `Personne ne s'intéresse à "${intent.interet}" apparemment 🤷`;
+            
+        case 'filiere':
+            const parFiliere = filtrerParFiliere(intent.filiere);
+            if (parFiliere.length > 0) {
+                const noms = parFiliere.map(e => `• ${e.prenom} ${e.nom}`).join('\n');
+                return `${parFiliere.length} étudiant(s) en ${intent.filiere} :\n\n${noms}`;
+            }
+            return `Aucun étudiant en ${intent.filiere} 🤔`;
+            
+        default:
+            // Réponses par défaut existantes
+            const msg = userMessage.toLowerCase();
+            
+            if (msg.includes('salut') || msg.includes('bonjour')) {
+                return mode === 'roast' 
+                    ? "Tiens, regarde qui arrive ! Prêt(e) à te faire roast ? 🔥"
+                    : "Salut ! Pose-moi des questions sur les étudiants ! 😊";
+            }
+            
+            return "Hmm, je n'ai pas compris. Essaie de demander des infos sur un étudiant ! 🤔";
     }
-
-    if (msg.includes("qui es-tu") || msg.includes("qui es tu")) {
-      return `Je suis un chatbot en mode ${mode} ! 🤖 En cours de développement dans le Module 1.`;
-    }
-
-    // Réponse par défaut selon le mode
-    const modeResponses = responses[mode] || responses.naturel;
-    const randomIndex = Math.floor(Math.random() * modeResponses.length);
-    return modeResponses[randomIndex];
-  }
-
+}
   // ============================================
   // 9. FONCTIONS UTILITAIRES
   // ============================================

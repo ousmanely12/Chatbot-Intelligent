@@ -1,0 +1,630 @@
+{
+    "etablissement": "sup management Intelligensia",
+    "annee": "2025-2026",
+    "ville": "Thies",
+    "pays": "Sénégal",
+    
+    "etudiants": [
+      {
+        "id": 1,
+        "nom": "Diop",
+        "prenom": "Amadou",
+        "age": 22,
+        "filiere": "Informatique",
+        "niveau": "Licence 3",
+        "photo": "👨‍💻",
+        "personnalite": {
+          "traits": ["créatif", "déterminé", "leader"],
+          "force": "résolution de problèmes complexes",
+          "faiblesse": "perfectionnisme excessif"
+        },
+        "funFacts": [
+          "A créé sa première app à 14 ans",
+          "Champion de hackathon national 2023",
+          "Peut coder 12 heures d'affilée sans pause",
+          "Rêve de créer une startup tech au Sénégal",
+          "Arrive toujours 5 minutes en retard en cours",
+          "A une collection secrète de figurines anime"
+        ],
+        "interets": ["IA", "blockchain", "football", "entrepreneuriat"],
+        "citation": "Le code est de la poésie pour les machines",
+        "reseaux": {
+          "github": "amadou-dev",
+          "linkedin": "amadou-diop"
+        },
+        "statistiques": {
+          "projetsRealises": 23,
+          "cafeParJour": 4,
+          "lignesDeCode": 75000
+        },
+        "relations": {
+          "meilleurAmi": "Omar Ba",
+          "crush": "Aïssatou Fall",
+          "rival": "Cheikh Gueye"
+        }
+      },
+      {
+        "id": 2,
+        "nom": "Ndiaye",
+        "prenom": "Fatou",
+        "age": 21,
+        "filiere": "Cybersécurité",
+        "niveau": "Licence 3",
+        "photo": "👩‍💻",
+        "personnalite": {
+          "traits": ["analytique", "discrète", "persévérante"],
+          "force": "détection de failles de sécurité",
+          "faiblesse": "timidité en public"
+        },
+        "funFacts": [
+          "A hacké le Wi-Fi de l'école (éthiquement!) pour montrer les failles",
+          "Collectionne les vulnérabilités CVE",
+          "Dort avec son laptop",
+          "A participé à 5 CTF (Capture The Flag)",
+          "Écoute du heavy metal en codant",
+          "A un chat noir nommé 'Bug'"
+        ],
+        "interets": ["ethical hacking", "cryptographie", "lecture", "échecs"],
+        "citation": "La meilleure défense est une bonne attaque",
+        "reseaux": {
+          "github": "fatou-sec",
+          "linkedin": "fatou-ndiaye-cyber"
+        },
+        "statistiques": {
+          "projetsRealises": 12,
+          "cafeParJour": 2,
+          "lignesDeCode": 45000
+        },
+        "relations": {
+          "meilleurAmi": "Khady Kane",
+          "crush": "secret",
+          "rival": "personne"
+        }
+      },
+      {
+        "id": 3,
+        "nom": "ly",
+        "prenom": "ousmane",
+        "age": 23,
+        "filiere": "Développement Web et mobile" ,
+        "niveau": "Licence 3",
+        "photo": "👨‍🔧",
+        "personnalite": {
+          "traits": ["sociable", "curieux", "patient"],
+          "force": "debuguer",
+          "faiblesse": "procrastination légendaire"
+        },
+        "funFacts": [
+          "Peut installer un serveur en 10 minutes chrono",
+          "A monté le réseau de 3 cybercafés",
+          "Connaît tous les codes d'erreur réseau par cœur",
+          "Toujours le dernier à rendre ses TPs mais toujours juste",
+          "Champion de FIFA à l'école",
+          "Peut coder une application en une nuit"
+        ],
+        "interets": ["réseaux", "basketball", "jeux en ligne", "hardware"],
+        "citation": "Il n'y a pas de problème réseau, juste des configurations créatives",
+        "reseaux": {
+          "github": "moussa-network",
+          "linkedin": "moussa-sow-networks"
+        },
+        "statistiques": {
+          "projetsRealises": 18,
+          "cafeParJour": 5,
+          "lignesDeCode": 35000
+        },
+        "relations": {
+          "meilleurAmi": "Cheikh Gueye",
+          "crush": "Mariama Cissé",
+          "rival": "personne, tout le monde l'aime"
+        }
+      },
+      {
+        "id": 4,
+        "nom": "Fall",
+        "prenom": "Aïssatou",
+        "age": 20,
+        "filiere": "Développement Web",
+        "niveau": "Licence 2",
+        "photo": "👩‍🎨",
+        "personnalite": {
+          "traits": ["artistique", "perfectionniste", "empathique"],
+          "force": "design UI/UX exceptionnel",
+          "faiblesse": "trop émotive face aux bugs"
+        },
+        "funFacts": [
+          "A redesigné le site de l'école (non officiel)",
+          "Ses sites web gagnent toujours des prix de design",
+          "Peut reconnaître une police de caractères juste en la regardant",
+          "A appris le code pour donner vie à ses designs",
+          "Possède 47 carnets de croquis",
+          "Fait des cookies pour les sessions de révision"
+        ],
+        "interets": ["design", "photographie", "mode", "front-end"],
+        "citation": "Un pixel mal placé peut ruiner une journée",
+        "reseaux": {
+          "github": "aissatou-designs",
+          "linkedin": "aissatou-fall-ux"
+        },
+        "statistiques": {
+          "projetsRealises": 31,
+          "cafeParJour": 3,
+          "lignesDeCode": 68000
+        },
+        "relations": {
+          "meilleurAmi": "Mariama Cissé",
+          "crush": "ne le dira jamais",
+          "rival": "personne"
+        }
+      },
+      {
+        "id": 5,
+        "nom": "Sarr",
+        "prenom": "Ibrahima",
+        "age": 24,
+        "filiere": "Data Science",
+        "niveau": "Master 2",
+        "photo": "👨‍🔬",
+        "personnalite": {
+          "traits": ["méthodique", "intellectuel", "réservé"],
+          "force": "analyse de données massives",
+          "faiblesse": "explications trop techniques"
+        },
+        "funFacts": [
+          "Prédit le menu de la cantine avec 87% de précision",
+          "A créé un modèle ML qui devine ton humeur",
+          "Lit des papers scientifiques pour se détendre",
+          "Ses graphiques sont des œuvres d'art",
+          "Parle en statistiques même hors cours",
+          "Peut visualiser les données dans sa tête"
+        ],
+        "interets": ["machine learning", "statistiques", "philosophie", "musique classique"],
+        "citation": "In Data We Trust",
+        "reseaux": {
+          "github": "ibrahima-datascience",
+          "linkedin": "ibrahima-sarr-data"
+        },
+        "statistiques": {
+          "projetsRealises": 15,
+          "cafeParJour": 6,
+          "lignesDeCode": 92000
+        },
+        "relations": {
+          "meilleurAmi": "Omar Ba",
+          "crush": "les données",
+          "rival": "personne"
+        }
+      },
+      {
+        "id": 6,
+        "nom": "Cissé",
+        "prenom": "Mariama",
+        "age": 21,
+        "filiere": "Développement Mobile",
+        "niveau": "Licence 3",
+        "photo": "👩‍💼",
+        "personnalite": {
+          "traits": ["ambitieuse", "organisée", "innovante"],
+          "force": "apps natives performantes",
+          "faiblesse": "impatiente avec les bugs"
+        },
+        "funFacts": [
+          "A publié 7 apps sur Google Play",
+          "Son app de météo a 10k+ téléchargements",
+          "Code en marchant (littéralement)",
+          "Veut que sa startup devienne la première licorne sénégalaise",
+          "Organise des bootcamps le weekend",
+          "A rencontré Mark Zuckerberg lors d'un événement"
+        ],
+        "interets": ["mobile dev", "startups", "voyage", "marketing"],
+        "citation": "Il y a une app pour ça. Sinon je la crée.",
+        "reseaux": {
+          "github": "mariama-apps",
+          "linkedin": "mariama-cisse-mobile"
+        },
+        "statistiques": {
+          "projetsRealises": 28,
+          "cafeParJour": 3,
+          "lignesDeCode": 81000
+        },
+        "relations": {
+          "meilleurAmi": "Aïssatou Fall",
+          "crush": "Moussa Sow (tout le monde le sait)",
+          "rival": "personne"
+        }
+      },
+      {
+        "id": 7,
+        "nom": "Ba",
+        "prenom": "Omar",
+        "age": 22,
+        "filiere": "Intelligence Artificielle",
+        "niveau": "Master 1",
+        "photo": "🤖",
+        "personnalite": {
+          "traits": ["visionnaire", "geek", "généreux"],
+          "force": "deep learning",
+          "faiblesse": "oublie de manger quand il code"
+        },
+        "funFacts": [
+          "A entraîné un modèle qui reconnaît les dialectes locaux",
+          "Ses repos GitHub ont 500+ stars",
+          "Parle aux robots comme à des humains",
+          "A nommé son chat Tensorflow",
+          "Dort 4 heures par nuit maximum",
+          "Rêve en Python"
+        ],
+        "interets": ["AI", "NLP", "robotique", "sci-fi"],
+        "citation": "L'IA n'est pas l'avenir, c'est le présent",
+        "reseaux": {
+          "github": "omar-ai",
+          "linkedin": "omar-ba-ai"
+        },
+        "statistiques": {
+          "projetsRealises": 19,
+          "cafeParJour": 7,
+          "lignesDeCode": 103000
+        },
+        "relations": {
+          "meilleurAmi": "Amadou Diop",
+          "crush": "Khady Kane (mais elle ne le sait pas)",
+          "rival": "personne"
+        }
+      },
+      {
+        "id": 8,
+        "nom": "Kane",
+        "prenom": "Khady",
+        "age": 20,
+        "filiere": "Informatique",
+        "niveau": "Licence 2",
+        "photo": "👩‍🎓",
+        "personnalite": {
+          "traits": ["enthousiaste", "serviable", "optimiste"],
+          "force": "travail en équipe",
+          "faiblesse": "dit oui à trop de projets"
+        },
+        "funFacts": [
+          "Toujours volontaire pour expliquer aux autres",
+          "Organise des coding parties le weekend",
+          "A un bullet journal pour tracker ses bugs",
+          "Rêve d'enseigner la programmation aux enfants",
+          "Apporte toujours des snacks en cours",
+          "Connaît tout le monde par son prénom"
+        ],
+        "interets": ["éducation", "communauté", "blogging", "gaming"],
+        "citation": "Seul on va vite, ensemble on va loin",
+        "reseaux": {
+          "github": "khady-learns",
+          "linkedin": "khady-kane"
+        },
+        "statistiques": {
+          "projetsRealises": 16,
+          "cafeParJour": 2,
+          "lignesDeCode": 41000
+        },
+        "relations": {
+          "meilleurAmi": "Fatou Ndiaye",
+          "crush": "personne pour l'instant",
+          "rival": "personne"
+        }
+      },
+      {
+        "id": 9,
+        "nom": "Gueye",
+        "prenom": "Cheikh",
+        "age": 23,
+        "filiere": "DevOps",
+        "niveau": "Master 1",
+        "photo": "⚙️",
+        "personnalite": {
+          "traits": ["pragmatique", "fiable", "calme"],
+          "force": "automatisation et CI/CD",
+          "faiblesse": "allergique au code legacy"
+        },
+        "funFacts": [
+          "A automatisé 90% de sa vie quotidienne",
+          "Ses scripts économisent 20h de travail par semaine",
+          "Dort en écoutant des podcasts sur Kubernetes",
+          "Peut déployer en production les yeux fermés",
+          "A un script pour commander son café",
+          "Son terminal est plus stylé que certains sites web"
+        ],
+        "interets": ["DevOps", "automation", "cloud", "containers"],
+        "citation": "Deploy early, deploy often",
+        "reseaux": {
+          "github": "cheikh-devops",
+          "linkedin": "cheikh-gueye-devops"
+        },
+        "statistiques": {
+          "projetsRealises": 25,
+          "cafeParJour": 4,
+          "lignesDeCode": 52000
+        },
+        "relations": {
+          "meilleurAmi": "Moussa Sow",
+          "crush": "personne",
+          "rival": "Amadou Diop (rivalité amicale)"
+        }
+      },
+      {
+        "id": 10,
+        "nom": "Diallo",
+        "prenom": "Aminata",
+        "age": 21,
+        "filiere": "Informatique",
+        "niveau": "Licence 3",
+        "photo": "🎮",
+        "personnalite": {
+          "traits": ["compétitive", "drôle", "spontanée"],
+          "force": "game development",
+          "faiblesse": "trop compétitive même en TP"
+        },
+        "funFacts": [
+          "A créé 3 jeux vidéo indépendants",
+          "Streame ses sessions de code sur Twitch",
+          "Gagne tous les tournois de gaming de l'école",
+          "Veut créer le premier jeu AAA africain",
+          "Fait des voix de personnages pendant qu'elle code",
+          "A battu le prof au Mortal Kombat"
+        ],
+        "interets": ["game dev", "e-sport", "animation", "manga"],
+        "citation": "Life is a game, code is the cheat code",
+        "reseaux": {
+          "github": "aminata-gamedev",
+          "linkedin": "aminata-diallo-games"
+        },
+        "statistiques": {
+          "projetsRealises": 21,
+          "cafeParJour": 5,
+          "lignesDeCode": 89000
+        },
+        "relations": {
+          "meilleurAmi": "Khady Kane",
+          "crush": "les jeux vidéo",
+          "rival": "Cheikh Gueye (au gaming)"
+        }
+      }
+    ],
+  
+    "evenements": [
+      {
+        "id": 1,
+        "titre": "Hackathon 2024",
+        "date": "2024-11-15",
+        "type": "competition",
+        "description": "Grand hackathon de 48h organisé par l'école",
+        "participants": ["Amadou Diop", "Omar Ba", "Mariama Cissé", "Cheikh Gueye"],
+        "gagnant": "Équipe d'Amadou Diop",
+        "prix": "500 000 FCFA + Mentorat startup",
+        "anecdotes": [
+          "Amadou n'a pas dormi pendant les 48h",
+          "Omar a commandé 15 pizzas pour toute l'équipe",
+          "Le projet final était une app de gestion de transport en commun",
+          "Cheikh a déployé l'app en prod pendant la présentation"
+        ]
+      },
+      {
+        "id": 2,
+        "titre": "Saint-Valentin Coding Party",
+        "date": "2025-02-14",
+        "type": "social",
+        "description": "Soirée de code avec blind coding date",
+        "participants": ["presque tout le monde"],
+        "anecdotes": [
+          "Omar a fini codeur avec Khady par hasard",
+          "Amadou a passé la soirée à regarder Aïssatou de loin",
+          "Fatou a hacké le système de matching pour éviter de participer",
+          "Moussa a gagné le concours de 'pire code' intentionnellement mauvais",
+          "Mariama a organisé tout l'événement en 3 jours"
+        ]
+      },
+      {
+        "id": 3,
+        "titre": "La Grande Panne WiFi",
+        "date": "2024-10-03",
+        "type": "incident",
+        "description": "Le WiFi de l'école est tombé pendant une semaine",
+        "impact": "Chaos total, les cours en ligne impossibles",
+        "resolution": "Fatou a trouvé la faille, Moussa a tout réparé",
+        "anecdotes": [
+          "Les étudiants se battaient pour les prises Ethernet",
+          "Quelqu'un a créé un marché noir de partage de connexion 4G",
+          "Fatou a découvert que c'était un virus, pas une panne",
+          "Moussa a passé 3 nuits blanches à tout reconfigurer",
+          "L'école a offert un mois de cantine gratuite à Fatou et Moussa"
+        ]
+      },
+      {
+        "id": 4,
+        "titre": "Tournoi FIFA Inter-Filières",
+        "date": "2024-12-10",
+        "type": "competition",
+        "description": "Grand tournoi de FIFA 24",
+        "participants": ["Moussa Sow", "Aminata Diallo", "Cheikh Gueye", "Khady Kane"],
+        "gagnant": "Moussa Sow",
+        "anecdotes": [
+          "Moussa a gagné tous ses matchs 5-0 minimum",
+          "Aminata était en finale mais a perdu 3-2",
+          "Cheikh a accusé Moussa de tricher (il plaisantait)",
+          "Le prof de réseaux a perdu au premier tour",
+          "Maintenant Moussa est appelé 'Le Messi du Joystick'"
+        ]
+      },
+      {
+        "id": 5,
+        "titre": "Présentation de Fin d'Année",
+        "date": "2024-06-20",
+        "type": "academique",
+        "description": "Présentation des projets de fin d'année",
+        "anecdotes": [
+          "Le laptop d'Ibrahima a crashé 2 minutes avant sa présentation",
+          "Aïssatou a présenté un site tellement beau que le jury a applaudi",
+          "Omar a démontré un chatbot qui parlait wolof",
+          "Mariama a montré une app qui a crash en pleine démo (mais a eu 18/20 quand même)",
+          "Fatou a fait une démo live de hacking éthique qui a impressionné tout le monde"
+        ]
+      }
+    ],
+  
+    "potins": [
+      {
+        "id": 1,
+        "titre": "Le Crush d'Omar",
+        "categorie": "romance",
+        "niveau": "tout le monde sait sauf Khady",
+        "description": "Omar est fou amoureux de Khady mais n'ose pas lui dire",
+        "details": [
+          "Il rougit à chaque fois qu'elle lui parle",
+          "Il a créé un algorithme pour 'prédire' où elle sera dans l'école",
+          "Ses commits GitHub augmentent de 50% quand elle est dans la salle",
+          "Amadou le taquine constamment à ce sujet"
+        ]
+      },
+      {
+        "id": 2,
+        "titre": "Le Triangle Amoureux",
+        "categorie": "romance",
+        "niveau": "c'est compliqué",
+        "description": "Amadou aime Aïssatou, mais Aïssatou est plus intéressée par son design que par la romance",
+        "details": [
+          "Amadou essaie toujours de l'impressionner avec ses projets",
+          "Aïssatou ne remarque rien car elle est trop concentrée sur ses maquettes",
+          "Mariama essaie de jouer les entremetteuses",
+          "La situation est devenue un running gag dans l'école"
+        ]
+      },
+      {
+        "id": 3,
+        "titre": "La Rivalité DevOps",
+        "categorie": "competition",
+        "niveau": "amicale mais intense",
+        "description": "Amadou et Cheikh ont une rivalité amicale sur qui déploie le plus vite",
+        "details": [
+          "Ils chronométrent leurs déploiements",
+          "Record actuel: Cheikh 2min 34s, Amadou 2min 41s",
+          "Ils se lancent des défis chaque semaine",
+          "En réalité ils s'admirent mutuellement"
+        ]
+      },
+      {
+        "id": 4,
+        "titre": "Le Secret de Fatou",
+        "categorie": "mystère",
+        "niveau": "très secret",
+        "description": "Fatou a un compte Twitter anonyme où elle partage des vulnérabilités",
+        "details": [
+          "Elle a 50k followers sans que personne ne sache que c'est elle",
+          "Seule Khady est au courant",
+          "Elle a refusé 3 offres d'emploi venues via ce compte",
+          "Son pseudo est une énigme que personne n'a résolue"
+        ]
+      },
+      {
+        "id": 5,
+        "titre": "La Playlist Secrète",
+        "categorie": "drole",
+        "niveau": "embarrassant",
+        "description": "Ibrahima écoute de la K-pop en codant (mais fait semblant d'écouter du classique)",
+        "details": [
+          "Aminata l'a surpris en train de danser sur du BTS",
+          "Il a supplié Aminata de ne rien dire",
+          "Maintenant Aminata le fait chanter régulièrement",
+          "Son Spotify Wrapped a révélé la vérité à tout le monde"
+        ]
+      },
+      {
+        "id": 6,
+        "titre": "Moussa et Mariama",
+        "categorie": "romance",
+        "niveau": "évident pour tout le monde",
+        "description": "Moussa et Mariama se tournent autour depuis des mois",
+        "details": [
+          "Ils trouvent toujours des excuses pour travailler ensemble",
+          "Moussa a configuré le réseau de la startup de Mariama gratuitement",
+          "Mariama a créé le logo de tous les projets de Moussa",
+          "Tout le monde attend qu'ils officialisent"
+        ]
+      }
+    ],
+  
+    "lieux": {
+      "salleFavorite": {
+        "nom": "Salle B201",
+        "surnom": "Le QG",
+        "description": "La salle où tout le monde se retrouve",
+        "anecdotes": [
+          "C'est là qu'Amadou a eu l'idée de son app",
+          "Les meilleurs débats tech ont lieu ici",
+          "Le tableau blanc n'a jamais été effacé depuis septembre",
+          "Il y a un coin 'sieste' improvisé"
+        ]
+      },
+      "cantine": {
+        "nom": "Cafétéria",
+        "platPreferé": "Thiéboudienne du vendredi",
+        "anecdotes": [
+          "Ibrahima prédit le menu avec 87% de précision",
+          "Les débats les plus chauds se passent ici",
+          "C'est là que Moussa a déclaré sa flamme à... sa pizza",
+          "Point de rendez-vous officieux à 13h"
+        ]
+      },
+      "labInfo": {
+        "nom": "Laboratoire Informatique",
+        "surnom": "La Matrice",
+        "description": "40 PC alignés, toujours pleins",
+        "anecdotes": [
+          "Fatou a trouvé 15 failles de sécurité en une semaine",
+          "C'est interdit de manger mais tout le monde le fait",
+          "Le PC numéro 23 est légendaire (le plus rapide)",
+          "Aminata y a installé secrètement des jeux"
+        ]
+      }
+    },
+  
+    "traditions": [
+      {
+        "nom": "Vendredi Déploiement",
+        "description": "Personne ne déploie en prod le vendredi (mais Cheikh le fait quand même)",
+        "origine": "Après le crash légendaire de 2023"
+      },
+      {
+        "nom": "Café du Lundi",
+        "description": "Tout le monde amène du café le lundi matin",
+        "participants": ["Amadou", "Omar", "Cheikh"]
+      },
+      {
+        "nom": "Pause Gaming 17h",
+        "description": "Session de jeux vidéo improvisée après les cours",
+        "jeux": ["FIFA", "Tekken", "Smash Bros"]
+      },
+      {
+        "nom": "Code Review Pizza",
+        "description": "Chaque vendredi, une session de code review avec des pizzas",
+        "organisateur": "Mariama Cissé"
+      }
+    ],
+  
+    "stats": {
+      "totalEtudiants": 10,
+      "filieres": [
+        "Informatique",
+        "Cybersécurité",
+        "Réseaux et Télécoms",
+        "Développement Web",
+        "Data Science",
+        "Développement Mobile",
+        "Intelligence Artificielle",
+        "DevOps"
+      ],
+      "ageMoyen": 21.5,
+      "totalProjets": 208,
+      "totalCafes": 41,
+      "totalEvenements": 5,
+      "totalPotins": 6,
+      "couplesPotentiels": 3,
+      "rivalitesAmicales": 2
+    }
+  }
+  
