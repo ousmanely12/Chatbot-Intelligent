@@ -108,37 +108,36 @@ function initializeApp() {
   // ============================================
   function sendMessage() {
     const message = userInput.value.trim();
-
-    // Vérifier que le message n'est pas vide
-    if (message === "") {
-      alert("⚠️ Message vide, rien à envoyer");
-      return;
+    
+    if (message === '') {
+        userInput.classList.add('shake');
+        setTimeout(() => userInput.classList.remove('shake'), 500);
+        return;
     }
-
-    console.log(`📤 Envoi du message : "${message}"`);
-    sendBtn.classList.add("sending");
-    setTimeout(() => sendBtn.classList.remove("sending"), 500);
-
-    // Afficher le message de l'utilisateur
+    
+    console.log(`📤 Message: "${message}" en mode ${currentMode}`);
+    
+    // Animation du bouton
+    sendBtn.classList.add('sending');
+    setTimeout(() => sendBtn.classList.remove('sending'), 500);
+    
+    // Afficher le message utilisateur
     addUserMessage(message);
-
-    // Effacer le champ de saisie
-    userInput.value = "";
-
-    // Simuler une réponse du bot (temporaire, Module 1)
-    // Dans les prochains modules, nous utiliserons l'IA
-    // Simuler la réflexion du bot
+    userInput.value = '';
+    
+    // Afficher l'indicateur de saisie
     showTypingIndicator();
-
-    // Délai aléatoire entre 1 et 3 secondes
-    const delay = Math.random() * 2000 + 1000;
-
-    setTimeout(() => {
-      hideTypingIndicator();
-      const response = generateTemporaryResponse(message, currentMode);
-      addBotMessage(response);
-    }, delay);
-  }
+    
+    // ⭐ NOUVEAU : Appel asynchrone avec await
+    generateResponse(message, currentMode).then(response => {
+        hideTypingIndicator();
+        addBotMessage(response);
+    }).catch(error => {
+        hideTypingIndicator();
+        addBotMessage("Oups, une erreur s'est produite ! 😅");
+        console.error('Erreur:', error);
+    });
+}
   // ============================================
   // TYPING INDICATOR
   // ============================================
@@ -214,73 +213,61 @@ function initializeApp() {
   // 8. FONCTION TEMPORAIRE POUR GÉNÉRER DES RÉPONSES
   // (Sera remplacée par l'IA au Module 4)
   // ============================================
-  function generateTemporaryResponse(userMessage, mode) {
+  async function generateResponse(userMessage, mode) {
     // Vérifier si les données sont chargées
     if (!donneesChargees()) {
-        return "Les données ne sont pas encore chargées. Patiente un instant... 🔄";
+        return "Les données ne sont pas encore chargées. Patiente... 🔄";
     }
     
     // Interpréter la question
     const intent = interpreterQuestion(userMessage);
     
-    switch(intent.type) {
-        case 'presentation':
-            const etudiants = rechercherEtudiant(intent.nom);
-            if (etudiants.length > 0) {
-                return presenterEtudiant(etudiants[0], mode);
-            }
-            return `Désolé, je ne connais pas "${intent.nom}" 🤔. Essaie un autre nom !`;
-            
-        case 'funfact':
-            const etudiant = rechercherEtudiant(intent.nom)[0];
-            if (etudiant) {
-                const fact = funFactAleatoire(etudiant);
-                return `🎉 Fun fact sur ${etudiant.prenom} : ${fact}`;
-            }
-            return `Je ne connais pas cette personne 🤷`;
-            
-        case 'statistiques':
-            const stats = studentsData.stats;
-            return `📊 Statistiques :\n\n` +
-                   `👥 Total : ${stats.totalEtudiants} étudiants\n` +
-                   `🎓 Filières : ${stats.filieres.join(', ')}\n` +
-                   `📦 Total projets : ${stats.totalProjets}\n` +
-                   `☕ Total cafés/jour : ${stats.totalCafes}`;
-            
-        case 'liste':
-            const liste = studentsData.etudiants
-                .map(e => `• ${e.prenom} ${e.nom} (${e.filiere})`)
-                .join('\n');
-            return `📋 Liste des étudiants :\n\n${liste}`;
-            
-        case 'recherche-interet':
-            const interesses = filtrerParInteret(intent.interet);
-            if (interesses.length > 0) {
-                const noms = interesses.map(e => `• ${e.prenom} ${e.nom}`).join('\n');
-                return `${interesses.length} personne(s) intéressée(s) par "${intent.interet}" :\n\n${noms}`;
-            }
-            return `Personne ne s'intéresse à "${intent.interet}" apparemment 🤷`;
-            
-        case 'filiere':
-            const parFiliere = filtrerParFiliere(intent.filiere);
-            if (parFiliere.length > 0) {
-                const noms = parFiliere.map(e => `• ${e.prenom} ${e.nom}`).join('\n');
-                return `${parFiliere.length} étudiant(s) en ${intent.filiere} :\n\n${noms}`;
-            }
-            return `Aucun étudiant en ${intent.filiere} 🤔`;
-            
-        default:
-            // Réponses par défaut existantes
-            const msg = userMessage.toLowerCase();
-            
-            if (msg.includes('salut') || msg.includes('bonjour')) {
-                return mode === 'roast' 
-                    ? "Tiens, regarde qui arrive ! Prêt(e) à te faire roast ? 🔥"
-                    : "Salut ! Pose-moi des questions sur les étudiants ! 😊";
-            }
-            
-            return "Hmm, je n'ai pas compris. Essaie de demander des infos sur un étudiant ! 🤔";
+    // Pour certaines questions simples, réponse directe (sans IA)
+    if (intent.type === 'statistiques') {
+        const stats = studentsData.stats;
+        return `📊 Statistiques :\n\n` +
+               `👥 Total : ${stats.totalEtudiants} étudiants\n` +
+               `🎓 Filières : ${stats.filieres.length}\n` +
+               `📦 Projets : ${stats.totalProjets}\n` +
+               `☕ Cafés/jour : ${stats.totalCafes}`;
     }
+    
+    if (intent.type === 'liste') {
+        const liste = studentsData.etudiants
+            .map(e => `• ${e.prenom} ${e.nom} (${e.filiere})`)
+            .join('\n');
+        return `📋 Liste des étudiants :\n\n${liste}`;
+    }
+    
+    // Pour les autres questions : utiliser l'IA
+    try {
+      return await genererReponseAvecCache(userMessage, mode);
+    } catch (error) {
+        // Fallback en cas d'erreur IA
+        return generateTemporaryResponseFallback(userMessage, mode, intent);
+    }
+}
+
+// Fonction de fallback (ancienne logique)
+function generateTemporaryResponseFallback(userMessage, mode, intent) {
+    const msg = userMessage.toLowerCase();
+    
+    if (msg.includes('salut') || msg.includes('bonjour')) {
+        return mode === 'roast' 
+            ? "Tiens, regarde qui arrive ! 🔥"
+            : "Salut ! Que veux-tu savoir ? 😊";
+    }
+    
+    // Présentation d'un étudiant
+    if (intent.type === 'presentation' && intent.nom) {
+        const etudiants = rechercherEtudiant(intent.nom);
+        if (etudiants.length > 0) {
+            return presenterEtudiant(etudiants[0], mode);
+        }
+        return `Je ne connais pas ${intent.nom} 🤔`;
+    }
+    
+    return "Hmm, je n'ai pas bien compris. Reformule ta question ! 🤔";
 }
   // ============================================
   // 9. FONCTIONS UTILITAIRES
