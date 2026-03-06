@@ -146,7 +146,6 @@ function initializeApp() {
     if (document.getElementById("typing-indicator")) {
       return;
     }
-
     const indicator = document.createElement("div");
     indicator.className = "message bot-message typing-indicator";
     indicator.id = "typing-indicator";
